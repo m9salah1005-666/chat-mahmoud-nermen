@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahmoud & Nermin | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    :root {
+      --bg-gradient-start: #e0f2fe;
+      --bg-gradient-mid: #bae6fd;
+      --bg-gradient-end: #7dd3fc;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --bubble-them: #ffffff;
+      --bubble-them-text: #0f172a;
+      --bubble-accent: linear-gradient(135deg, #0284c7, #0ea5e9);
+      --baby-blue-primary: #0284c7;
+      --baby-blue-light: #f0f9ff;
+      --baby-blue-deep: #0369a1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-glass: rgba(2, 132, 199, 0.16);
+      --cell-bg: rgba(224, 242, 254, 0.5);
+      --box-shadow-main: 0 20px 45px rgba(2, 132, 199, 0.15), 0 8px 24px rgba(15, 23, 42, 0.08);
+      --footer-bg: rgba(255, 255, 255, 0.7);
+
+      --top-header-bg: linear-gradient(180deg, 
+        rgba(224, 242, 254, 0.95) 0%, 
+        rgba(186, 230, 253, 0.82) 45%, 
+        rgba(255, 255, 255, 0.7) 100%);
+      --top-header-border: rgba(2, 132, 199, 0.18);
+    }
+
+    body.dark-theme {
+      --bg-gradient-start: #08131e;
+      --bg-gradient-mid: #0b2238;
+      --bg-gradient-end: #04090f;
+      --card-bg: rgba(11, 23, 38, 0.9);
+      --bubble-them: rgba(255, 255, 255, 0.08);
+      --bubble-them-text: #f0f9ff;
+      --bubble-accent: linear-gradient(135deg, #0284c7, #38bdf8);
+      --baby-blue-primary: #38bdf8;
+      --baby-blue-light: rgba(56, 189, 248, 0.12);
+      --baby-blue-deep: #7dd3fc;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-glass: rgba(56, 189, 248, 0.2);
+      --cell-bg: rgba(0, 0, 0, 0.35);
+      --box-shadow-main: 0 25px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(56, 189, 248, 0.1);
+      --footer-bg: rgba(8, 19, 30, 0.7);
+
+      --top-header-bg: linear-gradient(180deg, 
+        rgba(14, 38, 64, 0.95) 0%, 
+        rgba(11, 28, 48, 0.85) 60%, 
+        rgba(8, 19, 30, 0.75) 100%);
+      --top-header-border: rgba(56, 189, 248, 0.25);
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid) 50%, var(--bg-gradient-end));
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 12px;
+    }
+
+    .chat-wrapper {
+      width: 100%;
+      max-width: 420px;
+      height: 94vh;
+      max-height: 850px;
+      display: flex;
+      flex-direction: column;
+      background: var(--card-bg);
+      border: 1px solid var(--border-glass);
+      border-radius: 32px;
+      box-shadow: var(--box-shadow-main);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .top-header-container {
+      background: var(--top-header-bg);
+      border-bottom: 1px solid var(--top-header-border);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
+      position: relative;
+      z-index: 10;
+    }
+
+    .top-header-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--baby-blue-primary), transparent);
+      opacity: 0.6;
+    }
+
+    .top-notch {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 22px 4px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 18px 14px;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar-box {
+      position: relative;
+      width: 46px;
+      height: 46px;
+    }
+
+    .avatar-box img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--baby-blue-primary);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+    }
+
+    .online-indicator {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 11px;
+      height: 11px;
+      background: #10b981;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+    }
+
+    .user-info h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .user-info p {
+      font-size: 11px;
+      color: var(--baby-blue-deep);
+      margin-top: 1px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .audio-header-btn, .theme-toggle-btn {
+      background: var(--baby-blue-light);
+      border: 1px solid var(--baby-blue-primary);
+      color: var(--baby-blue-deep);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+      backdrop-filter: blur(8px);
+    }
+
+    .theme-toggle-btn {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+
+    .audio-header-btn:hover, .theme-toggle-btn:hover {
+      background: var(--baby-blue-primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 18px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scrollbar-width: none;
+    }
+
+    .chat-messages::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chat-date-stamp {
+      align-self: center;
+      background: var(--baby-blue-light);
+      border: 1px solid var(--border-glass);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 10px;
+      color: var(--baby-blue-deep);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .bubble {
+      max-width: 84%;
+      padding: 11px 16px;
+      border-radius: 18px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      position: relative;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: bubbleAppear 0.4s ease forwards;
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+
+    @keyframes bubbleAppear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bubble.them {
+      align-self: flex-start;
+      background: var(--bubble-them);
+      border: 1px solid var(--border-glass);
+      color: var(--bubble-them-text);
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .bubble.me {
+      align-self: flex-end;
+      background: var(--bubble-accent);
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+
+    .bubble .bubble-time {
+      display: block;
+      font-size: 9px;
+      color: #e0f2fe;
+      text-align: left;
+      margin-top: 4px;
+      opacity: 0.9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      direction: ltr;
+    }
+
+    .bubble.them .bubble-time {
+      color: var(--text-muted);
+    }
+
+    .wedding-invitation-card {
+      align-self: center;
+      width: 100%;
+      background: var(--bubble-them);
+      border: 1px solid var(--border-glass);
+      border-radius: 22px;
+      padding: 16px;
+      text-align: center;
+      margin: 4px 0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      opacity: 0;
+      transform: scale(0.97);
+      animation: cardAppear 0.5s 0.8s ease forwards;
+      direction: ltr;
+    }
+
+    @keyframes cardAppear {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .invitation-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .invitation-card-title span {
+      color: var(--baby-blue-primary);
+    }
+
+    .event-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 12px 0 10px;
+    }
+
+    .info-cell {
+      background: var(--cell-bg);
+      padding: 8px;
+      border-radius: 12px;
+      border: 1px solid var(--border-glass);
+    }
+
+    .info-cell small {
+      display: block;
+      font-size: 9px;
+      color: var(--baby-blue-deep);
+      font-weight: 700;
+      letter-spacing: 0.8px;
+    }
+
+    .info-cell strong {
+      font-size: 11px;
+      color: var(--text-main);
+      margin-top: 2px;
+      display: block;
+    }
+
+    .chat-countdown {
+      background: var(--cell-bg);
+      border-radius: 14px;
+      padding: 8px 12px;
+      border: 1px solid var(--border-glass);
+    }
+
+    .chat-countdown p {
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--baby-blue-deep);
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .countdown-slots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .slot strong {
+      font-size: 15px;
+      color: var(--baby-blue-primary);
+    }
+
+    .slot small {
+      display: block;
+      font-size: 8px;
+      color: var(--text-muted);
+    }
+
+    .typing-box {
+      align-self: flex-start;
+      background: var(--bubble-them);
+      padding: 8px 14px;
+      border-radius: 16px;
+      border-bottom-left-radius: 4px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid var(--border-glass);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      order: 999999;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--baby-blue-primary);
+      border-radius: 50%;
+      animation: wave 1.2s infinite ease-in-out;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes wave {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+    }
+
+    .chat-footer {
+      padding: 10px 14px 14px;
+      border-top: 1px solid var(--border-glass);
+      background: var(--footer-bg);
+    }
+
+    .quick-replies {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      direction: rtl;
+    }
+
+    .quick-replies::-webkit-scrollbar {
+      display: none;
+    }
+
+    .reply-chip {
+      background: var(--bubble-them);
+      border: 1px solid var(--border-glass);
+      color: var(--baby-blue-deep);
+      padding: 5px 12px;
+      border-radius: 18px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+      transition: all 0.2s ease;
+    }
+
+    .reply-chip:hover {
+      background: var(--baby-blue-primary);
+      color: #ffffff;
+      border-color: var(--baby-blue-primary);
+    }
+
+    .input-form-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bubble-them);
+      border: 1px solid var(--border-glass);
+      border-radius: 26px;
+      padding: 4px 6px 4px 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .input-form-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 13px;
+      font-family: 'Cairo', sans-serif;
+      color: var(--text-main);
+      background: transparent;
+      padding: 6px 4px;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .input-form-bar input::placeholder {
+      color: #94a3b8;
+    }
+
+    .action-circle-btn, .send-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--baby-blue-primary);
+      color: #ffffff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .action-circle-btn:hover, .send-btn:hover {
+      background: var(--baby-blue-deep);
+      transform: scale(1.06);
+    }
+
+    .send-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="weddingTrack" loop src="https://files.catbox.moe/h38n6y.mpeg"></audio>
+
+  <div class="chat-wrapper">
+
+    <div class="top-header-container">
+      <div class="top-notch">
+           <span id="liveClock">12:00 PM</span>
+           <span>5G 📶</span>
+      </div>
+      <header class="chat-header">
+        <div class="user-profile">
+          <div class="avatar-box">
+            <!-- صورة ورود وأزهار زفاف بيضاء وسماوية راقية -->
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=160&q=80" alt="Mahmoud & Nermin">
+            <div class="online-indicator"></div>
+          </div>
+          <div class="user-info">
+            <h3>Mahmoud & Nermin ♡</h3>
+            <p id="typingStatus">Online</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button id="themeToggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode">
+            🌙
+          </button>
+          <button id="musicBtn" class="audio-header-btn">
+            <span>▶</span> Music
+          </button>
+        </div>
+      </header>
+    </div>
+
+    <div class="chat-messages" id="chatBox">
+      
+      <div class="chat-date-stamp">Today • Wedding Invitation</div>
+
+      <div class="bubble them" style="animation-delay: 0.1s;">
+        أهلاً بيك! حكايتنا بدأت سوا، ومينفعش اللحظة الحلوة دي تكمل من غير ما تكون موجود معانا 💍✨
+        <span class="bubble-time">10:01 PM</span>
+      </div>
+
+      <div class="bubble them" style="animation-delay: 0.5s;">
+        يسعدنا ويشرفنا دعوتكم لحضور حفل زفافنا وبداية رحلة العمر 🌸🥂
+        <span class="bubble-time">10:01 PM</span>
+      </div>
+
+      <div class="wedding-invitation-card">
+        <h4 class="invitation-card-title">Mahmoud <span>&</span> Nermin</h4>
+        <p style="font-size: 10px; color: var(--baby-blue-deep); font-weight: 700; letter-spacing: 1px;">WEDDING CELEBRATION</p>
+
+        <div class="event-info-grid">
+          <div class="info-cell">
+            <small>DATE</small>
+            <strong>Oct 02, 2026</strong>
+          </div>
+          <div class="info-cell">
+            <small>TIME</small>
+            <strong>07:00 — 11:00 PM</strong>
+          </div>
+          <div class="info-cell">
+            <small>VENUE</small>
+            <strong>Kayan Hall</strong>
+          </div>
+          <div class="info-cell">
+            <small>LOCATION</small>
+            <strong>Teachers Club, Damanhour</strong>
+          </div>
+        </div>
+
+        <div class="chat-countdown">
+          <p>COUNTDOWN TO FOREVER</p>
+          <div class="countdown-slots">
+            <div class="slot"><strong id="days">00</strong><small>DAYS</small></div>
+            <span style="color: var(--baby-blue-primary); font-weight:bold;">:</span>
+            <div class="slot"><strong id="hours">00</strong><small>HRS</small></div>
+            <span style="color: var(--baby-blue-primary); font-weight:bold;">:</span>
+            <div class="slot"><strong id="minutes">00</strong><small>MIN</small></div>
+            <span style="color: var(--baby-blue-primary); font-weight:bold;">:</span>
+            <div class="slot"><strong id="seconds">00</strong><small>SEC</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="typing-box" id="typingBubble">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+    </div>
+
+    <footer class="chat-footer">
+      <div class="quick-replies">
+        <button class="reply-chip" onclick="quickSend('ألف مبروك لمحمود ونرمين! جايين نحتفل بيكم ❤️')">مبروك! جايين نحتفل ❤️</button>
+        <button class="reply-chip" onclick="quickSend('مكان القاعة فين بالظبط؟')">📍 مكان القاعة؟</button>
+        <button class="reply-chip" onclick="quickSend('الميعاد هيبدأ الساعة كام؟')">⏰ الساعة كام؟</button>
+        <button class="reply-chip" onclick="copyInviteDetails()">📋 نسخ التفاصيل</button>
+      </div>
+
+      <form class="input-form-bar" id="chatForm" onsubmit="handleSend(event)">
+        <a href="https://maps.app.goo.gl/h25bj5HY3pWF2LLg6" target="_blank" class="action-circle-btn" title="Open Map">
+          📍
+        </a>
+        <input type="text" id="userInput" placeholder="اكتب رسالتك أو استفسارك هنا..." autocomplete="off">
+        <button type="submit" class="send-btn" title="Send message">
+          <svg viewBox="0 0 24 24">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </form>
+    </footer>
+
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    let isDark = false;
+
+    themeToggle.addEventListener("click", () => {
+      isDark = !isDark;
+      document.body.classList.toggle("dark-theme", isDark);
+      themeToggle.innerText = isDark ? "☀️" : "🌙";
+    });
+
+    const weddingDate = new Date("2026-10-02T19:00:00+03:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+      }
+
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(d).padStart(2, "0");
+      document.getElementById("hours").innerText = String(h).padStart(2, "0");
+      document.getElementById("minutes").innerText = String(m).padStart(2, "0");
+      document.getElementById("seconds").innerText = String(s).padStart(2, "0");
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const chatBox = document.getElementById("chatBox");
+    const typingBubble = document.getElementById("typingBubble");
+    const typingStatus = document.getElementById("typingStatus");
+    const userInput = document.getElementById("userInput");
+
+    function getSmartBotReply(message) {
+      const msg = message.toLowerCase();
+
+      if (msg.includes("فين") || msg.includes("مكان") || msg.includes("قاعة") || msg.includes("عنوان") || msg.includes("لوكيشن") || msg.includes("كيان") || msg.includes("دمنهور") || msg.includes("معلمين") || msg.includes("kayan") || msg.includes("where")) {
+        return "الفرح هيكون في قاعة كيان (نادي المعلمين - دمنهور)، وتقدر تدوس على علامة الـ 📍 تحت وهيفتحلك اللوكيشن المباشر على Google Maps! 🗺️✨";
+      }
+
+      if (msg.includes("ساعة") || msg.includes("كام") || msg.includes("ميعاد") || msg.includes("امتى") || msg.includes("وقت") || msg.includes("تاريخ") || msg.includes("جمعة") || msg.includes("time") || msg.includes("when")) {
+        return "مستنيينك إن شاء الله يوم الجمعة 2 أكتوبر 2026، والاحتفال هيبدأ من الساعة 7:00 مساءً لحد 11:00 مساءً ⏰🤍";
+      }
+
+      if (msg.includes("اطفال") || msg.includes("أطفال") || msg.includes("بيبي") || msg.includes("عيال") || msg.includes("kids")) {
+        return "الأطفال حبايبنا وكل حاجة، بس نحب السهرة تكون هادية ورايقة ومريحة للكل بدون دوشة 👶🤍";
+      }
+
+      if (msg.includes("لبس") || msg.includes("بدلة") || msg.includes("فستان") || msg.includes("دريس") || msg.includes("dress")) {
+        return "أشيك وأحلى حاجة عندك، وأهم حاجة تيجي مرتاح وجاهز تفرح وترقص معانا! 🕺✨";
+      }
+
+      return "شكراً لذوقك ولمشاعرك الجميلة بجد! فرحة محمود ونرمين متكملش غير بوجودك، مستنيينك تنورنا ❤️✨";
+    }
+
+    function appendUserMessage(text) {
+      const bubble = document.createElement("div");
+      bubble.className = "bubble me";
+      bubble.innerHTML = `${escapeHTML(text)} <span class="bubble-time">Just now ✓✓</span>`;
+      
+      chatBox.insertBefore(bubble, typingBubble);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function appendBotMessage(text) {
+      const bubble = document.createElement("div");
+      bubble.className = "bubble them";
+      bubble.innerHTML = `${text} <span class="bubble-time">Just now</span>`;
+      
+      chatBox.insertBefore(bubble, typingBubble);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function processMessage(text) {
+      appendUserMessage(text);
+
+      chatBox.appendChild(typingBubble);
+
+      setTimeout(() => {
+        typingBubble.style.display = "flex";
+        typingStatus.innerText = "typing...";
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 250);
+
+      setTimeout(() => {
+        typingBubble.style.display = "none";
+        typingStatus.innerText = "Online";
+        const replyText = getSmartBotReply(text);
+        appendBotMessage(replyText);
+      }, 1400);
+    }
+
+    function handleSend(e) {
+      e.preventDefault();
+      const text = userInput.value.trim();
+      if (!text) return;
+
+      processMessage(text);
+      userInput.value = "";
+    }
+
+    function quickSend(text) {
+      processMessage(text);
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag] || tag)
+      );
+    }
+
+    const audio = document.getElementById("weddingTrack");
+    const musicBtn = document.getElementById("musicBtn");
+    let isPlaying = false;
+
+    musicBtn.addEventListener("click", () => {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          musicBtn.innerHTML = "<span>❚❚</span> Pause";
+          musicBtn.style.background = "var(--baby-blue-primary)";
+          musicBtn.style.color = "#ffffff";
+        }).catch(err => console.log(err));
+      } else {
+        audio.pause();
+        isPlaying = false;
+        musicBtn.innerHTML = "<span>▶</span> Music";
+        musicBtn.style.background = "var(--baby-blue-light)";
+        musicBtn.style.color = "var(--baby-blue-deep)";
+      }
+    });
+
+    function copyInviteDetails() {
+      const details = `💍 دعوة حفل زفاف محمود ونرمين 💍
+الموعد: الجمعة، 02 أكتوبر 2026
+الوقت: من 7:00 م حتى 11:00 م
+المكان: قاعة كيان (Kayan Hall) - نادي المعلمين، دمنهور
+اللوكيشن: https://maps.app.goo.gl/h25bj5HY3pWF2LLg6
+يسعدنا حضوركم ومشاركتنا فرحتنا ♡`;
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(details).then(() => {
+          alert("تم نسخ تفاصيل الفرح بنجاح! 💌");
+        });
+      } else {
+        alert(details);
+      }
+    }
+    // دالة لجلب الوقت الفعلي لجهاز المستخدم وتحديثه كل ثانية
+function updateLiveClock() {
+  const clockElement = document.getElementById("liveClock");
+  if (!clockElement) return;
+
+  const now = new Date();
+  let hours = now.getHours();
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12;
+  hours = hours ? hours : 12; // تحويل الساعة 0 إلى 12
+
+  clockElement.innerText = `${hours}:${minutes} ${ampm}`;
+}
+
+// تشغيل الساعة فوراً وتحديثها باستمرار
+updateLiveClock();
+setInterval(updateLiveClock, 1000);
+  </script>
+
+</body>
+</html>
